@@ -33,6 +33,10 @@
 #define IMPORT
 #endif // #if (defined(__MINGW32__) || defined(__MINGW64__) || defined(__CYGWIN__) || defined(_MSC_VER)) && !defined(SLEEF_STATIC_LIBS)
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 IMPORT struct SleefDFT *SleefDFT_double_init1d(uint32_t n, const double *in, double *out, uint64_t mode);
 IMPORT struct SleefDFT *SleefDFT_double_init2d(uint32_t n, uint32_t m, const double *in, double *out, uint64_t mode);
 IMPORT void SleefDFT_double_execute(struct SleefDFT *ptr, const double *in, double *out);
@@ -76,5 +80,9 @@ IMPORT void SleefDFT_setPlanFilePath(const char *path, const char *arch, uint64_
 #define SLEEF_PLAN_REFERTOENVVAR (1 << 30)
 
 #undef IMPORT
+
+#ifdef __cplusplus
+} // extern "C"
 #endif
 
+#endif
